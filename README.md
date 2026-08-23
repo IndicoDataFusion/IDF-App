@@ -361,3 +361,32 @@ If the app cannot initialise a data source on startup, the **Setup Wizard** open
 | Export Abstracts option not shown | App is in Review or Reading mode | Export is only available in Management mode |
 | Import fails with "wrong password" | Incorrect password | Use the password that was set at export time |
 
+
+---
+
+## GitHub Pages — Project Landing Page
+
+The `docs/` directory contains the project landing page hosted via GitHub Pages.
+
+### Folder structure
+
+```
+docs/
+├── index.html   # Main single-page site
+├── style.css    # Stylesheet (mobile-first, dark theme)
+└── main.js      # Vanilla JS (nav, scroll-reveal, animations)
+```
+
+### Deploying to GitHub Pages
+
+1. Push the `docs/` directory to your default branch.
+2. In your repository go to **Settings → Pages**.
+3. Under **Source**, choose **Deploy from a branch**.
+4. Select the branch (e.g. `main`) and set the folder to **`/docs`**.
+5. Click **Save**. GitHub will publish the site at
+   `https://<org>.github.io/<repo>/` within a few minutes.
+
+### Editing content
+
+All placeholder values (project name, links, roadmap items) are in `docs/index.html`.  
+Search for `IndicoDataFusion/IDF-App` to find every GitHub link that may need updating.
