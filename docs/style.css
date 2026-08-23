@@ -11,9 +11,7 @@ a:focus-visible, button:focus-visible { outline:2px solid var(--flame); outline-
 .nav { height:100%; display:flex; align-items:center; justify-content:space-between; gap:32px; }
 .brand { display:inline-flex; align-items:center; gap:11px; font-weight:600; letter-spacing:-.025em; }
 .brand > span:last-child > span { color:var(--flame); }
-.brand-mark { width:20px; display:grid; grid-template-columns:repeat(3,3px); gap:3px; }
-.brand-mark i { display:block; width:3px; height:3px; border-radius:50%; background:var(--ink); }
-.brand-mark i:nth-child(3), .brand-mark i:nth-child(6), .brand-mark i:nth-child(9) { background:var(--flame); }
+.brand-icon { width:32px; height:32px; flex:0 0 auto; object-fit:contain; border-radius:6px; }
 .nav-menu { display:flex; align-items:center; gap:30px; font-size:14px; color:#4f4b46; }
 .nav-menu > a:not(.button) { transition:color .16s ease; }
 .nav-menu > a:not(.button):hover { color:var(--flame); }
@@ -33,6 +31,7 @@ a:focus-visible, button:focus-visible { outline:2px solid var(--flame); outline-
 .button-primary:hover { background:var(--flame-dark); border-color:var(--flame-dark); }
 .button-small { min-height:38px; padding:8px 13px; }
 .button-quiet { background:transparent; }
+.github-button svg { width:16px; height:16px; }
 
 .hero { min-height:675px; border-bottom:1px solid var(--line); }
 .dot-field { background-image:radial-gradient(#d8d4ce 1px,transparent 1.25px); background-size:14px 14px; }
@@ -115,7 +114,7 @@ a:focus-visible, button:focus-visible { outline:2px solid var(--flame); outline-
 .steps li > span { display:block; margin-bottom:62px; color:var(--flame); font:11px var(--mono); }
 .steps h3 { margin:0 0 9px; font-size:18px; letter-spacing:-.02em; }
 .steps p { margin:0; color:var(--muted); font-size:14px; }
-.center-action { display:flex; justify-content:center; margin-top:42px; }
+.center-action { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:42px; }
 
 .support { background:var(--paper-deep); }
 .support-grid { display:grid; grid-template-columns:repeat(2,1fr); border-top:1px solid #cec9c2; border-left:1px solid #cec9c2; }
@@ -195,6 +194,7 @@ a:focus-visible, button:focus-visible { outline:2px solid var(--flame); outline-
   .hero-grid { gap:35px; padding-block:65px; }
   .hero h1 { font-size:46px; }
   .hero-actions { align-items:stretch; flex-direction:column; }
+  .center-action { align-items:stretch; flex-direction:column; }
   .availability { gap:9px; }
   .availability > span { flex-basis:100%; }
   .app-schematic { min-height:390px; }
