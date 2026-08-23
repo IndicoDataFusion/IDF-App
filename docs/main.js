@@ -1,5 +1,30 @@
 (function () {
   "use strict";
+  const root = document.documentElement;
+  const themeToggle = document.getElementById("themeToggle");
+  const themeColor = document.querySelector('meta[name="theme-color"]');
+
+  const applyTheme = (theme, remember) => {
+    const isDark = theme === "dark";
+    root.dataset.theme = isDark ? "dark" : "light";
+    if (themeToggle) {
+      const label = isDark ? "Switch to light mode" : "Switch to dark mode";
+      themeToggle.setAttribute("aria-label", label);
+      themeToggle.setAttribute("title", label);
+    }
+    if (themeColor) themeColor.content = isDark ? "#161513" : "#cc3514";
+    if (remember) {
+      try { localStorage.setItem("idf-theme", isDark ? "dark" : "light"); } catch (_) {}
+    }
+  };
+
+  applyTheme(root.dataset.theme || "light", false);
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      applyTheme(root.dataset.theme === "dark" ? "light" : "dark", true);
+    });
+  }
+
   const toggle = document.getElementById("navToggle");
   const menu = document.getElementById("navMenu");
   if (toggle && menu) {

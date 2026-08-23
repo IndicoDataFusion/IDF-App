@@ -9,11 +9,18 @@
   <meta property="og:description" content="Download IDF for Windows, macOS, or Linux. Browse Indico conference data online or offline from one focused desktop app." />
   <meta property="og:type" content="website" />
   <title>IndicoDataFusion · Your conference data, together</title>
+  <script>
+    try {
+      const savedTheme = localStorage.getItem("idf-theme");
+      const theme = savedTheme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.dataset.theme = theme;
+    } catch (_) {}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%23cc3514'/><circle cx='16' cy='16' r='8' fill='none' stroke='white' stroke-width='2'/><circle cx='16' cy='16' r='3' fill='white'/></svg>" />
+  <link rel="icon" type="image/svg+xml" href="icon.svg" />
 </head>
 <body>
   <header class="site-header" id="top">
@@ -25,6 +32,10 @@
       <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation"><span></span><span></span><span></span></button>
       <div class="nav-menu" id="navMenu">
         <a href="#features">Features</a><a href="#modes">Modes</a><a href="#get-started">Get started</a><a href="#support">Support</a>
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path></svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5 8.6 8.6 0 1 0 20.5 14.3Z"></path></svg>
+        </button>
         <a class="button button-small button-quiet" href="https://github.com/IndicoDataFusion/IDF-App/issues" target="_blank" rel="noopener">Report an issue</a>
         <a class="button button-small button-primary" href="https://github.com/IndicoDataFusion/IDF-App/releases/latest" target="_blank" rel="noopener">Download</a>
       </div>
