@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#cc3514" />
-  <meta name="description" content="IndicoDataFusion is a native desktop app for browsing, reviewing, and managing conference data from one or more Indico instances." />
+  <meta name="description" content="IndicoDataFusion is a native desktop workspace for searching Indico programmes, abstracts, contributions, reviews, and private local notes." />
   <meta property="og:title" content="IndicoDataFusion · Your conference data, together" />
-  <meta property="og:description" content="Download IDF for Windows, macOS, or Linux. Browse Indico conference data online or offline from one focused desktop app." />
+  <meta property="og:description" content="Search, organise, review, and analyse live or exported Indico event data from one focused desktop app." />
   <meta property="og:type" content="website" />
   <title>IndicoDataFusion · Your conference data, together</title>
   <script>
@@ -31,7 +31,7 @@
       </a>
       <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="navMenu" aria-label="Open navigation"><span></span><span></span><span></span></button>
       <div class="nav-menu" id="navMenu">
-        <a href="#features">Features</a><a href="#modes">Modes</a><a href="#get-started">Get started</a><a href="#support">Support</a>
+        <a href="#features">Features</a><a href="#workspace">Workspace</a><a href="#get-started">Get started</a><a href="#support">Support</a>
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Switch to dark mode">
           <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"></circle><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"></path></svg>
           <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5 8.6 8.6 0 1 0 20.5 14.3Z"></path></svg>
@@ -49,7 +49,7 @@
         <div class="hero-copy">
           <p class="eyebrow"><span></span> The desktop companion for Indico</p>
           <h1 id="hero-title">Your conference data, together.</h1>
-          <p class="hero-lede">Browse events, contributions, and abstracts from one or more Indico instances in a single native app. Review with confidence, work offline, and keep every conference within reach.</p>
+          <p class="hero-lede">Bring an Indico event's programme, contributions, abstracts, reviews, and private research notes into one fast, searchable workspace—using live data or an exported abstracts file.</p>
           <div class="hero-actions">
             <a class="button button-primary" href="https://github.com/IndicoDataFusion/IDF-App/releases/latest" target="_blank" rel="noopener">Download the latest release <span aria-hidden="true">↓</span></a>
             <a class="button button-quiet" href="#get-started">See how it works</a>
@@ -79,34 +79,36 @@
       </div>
     </section>
 
-    <div class="signal-strip" aria-label="Product highlights"><div class="signal-track shell"><span>ONE APP · MANY SOURCES</span><i></i><span>OFFLINE-CAPABLE</span><i></i><span>SECURE TOKEN STORAGE</span><i></i><span>THREE WORK MODES</span><i></i><span>NATIVE DESKTOP BUILDS</span></div></div>
+    <div class="signal-strip" aria-label="Product highlights"><div class="signal-track shell"><span>SEARCHABLE WORKSPACE</span><i></i><span>LIVE OR FILE-BASED</span><i></i><span>PRIVATE LOCAL NOTES</span><i></i><span>OPTIONAL AI ASSISTANT</span><i></i><span>NATIVE DESKTOP BUILDS</span></div></div>
 
     <section class="section" id="features" aria-labelledby="features-title">
       <div class="shell">
-        <p class="eyebrow"><span></span> A clearer conference workflow</p>
-        <div class="section-intro"><h2 id="features-title">Everything you need to move through Indico data.</h2><p>IDF keeps the details close without getting in your way—from a quick abstract lookup to a full programme review session.</p></div>
+        <p class="eyebrow"><span></span> A complete conference workspace</p>
+        <div class="section-intro"><h2 id="features-title">Move through the programme without losing context.</h2><p>Search the event, organise what matters, review assigned work, and analyse the bigger picture without switching tools.</p></div>
         <div class="feature-grid">
-          <article class="feature feature-wide"><div class="feature-number">01</div><div><h3>Bring every source into one view</h3><p>Connect multiple Indico instances and move between conferences without signing in again or duplicating data.</p></div><div class="source-stack" aria-hidden="true"><span><i></i>Annual meeting</span><span><i></i>Workshop series</span><span><i></i>Review archive</span></div></article>
-          <article class="feature"><div class="feature-number">02</div><h3>Keep working offline</h3><p>Locally cached events, contributions, and abstracts stay available between sessions and away from a connection.</p></article>
-          <article class="feature"><div class="feature-number">03</div><h3>Review in context</h3><p>See assignments, submit or edit reviews, answer questions, and track progress without jumping between tools.</p></article>
-          <article class="feature"><div class="feature-number">04</div><h3>Understand the programme</h3><p>Use built-in statistics and charts to explore submission trends, review progress, and contribution data.</p></article>
-          <article class="feature"><div class="feature-number">05</div><h3>Keep credentials protected</h3><p>API tokens are stored in your operating system keyring, never left behind in plain-text configuration files.</p></article>
+          <article class="feature feature-wide"><div class="feature-number">01</div><div><h3>Search the whole programme</h3><p>Browse event information, abstracts, contributions, sessions, tracks, people, attachments, and custom fields in table or card views.</p></div><div class="source-stack" aria-hidden="true"><span><i></i>Events &amp; people</span><span><i></i>Abstracts &amp; reviews</span><span><i></i>Contributions &amp; sessions</span></div></article>
+          <article class="feature"><div class="feature-number">02</div><h3>Organise your own view</h3><p>Search, sort, and filter large lists, expose custom-field columns, and save private stars, tags, and notes locally.</p></article>
+          <article class="feature"><div class="feature-number">03</div><h3>Review with your permissions</h3><p>Complete assigned reviews, questions, priorities, proposed actions, comments, and related-abstract choices.</p></article>
+          <article class="feature"><div class="feature-number">04</div><h3>Analyse the event</h3><p>Explore affiliations, countries, submission trends, reviews, ratings, tracks, timelines, matrices, and word frequencies.</p></article>
+          <article class="feature"><div class="feature-number">05</div><h3>Connect published proceedings</h3><p>Derive and validate paper and talk-slides links for contributions from a configured proceedings site.</p></article>
+          <article class="feature"><div class="feature-number">06</div><h3>Ask an optional AI assistant</h3><p>Query a read-only data snapshot, generate charts, inspect linked PDFs, and retain chat sessions locally.</p></article>
+          <article class="feature"><div class="feature-number">07</div><h3>Control local data</h3><p>Manage cache freshness and size, keep tokens in the OS keyring, and export encrypted <code>.idfc</code> backups.</p></article>
         </div>
       </div>
     </section>
 
-    <section class="section modes" id="modes" aria-labelledby="modes-title">
+    <section class="section modes" id="workspace" aria-labelledby="workspace-title">
       <div class="shell modes-grid">
-        <div class="modes-copy"><p class="eyebrow light"><span></span> Built around your role</p><h2 id="modes-title">The right workspace, automatically.</h2><p>IDF selects a focused experience from your data source and permissions. The same package works for organisers, reviewers, and readers.</p><a class="text-link" href="https://github.com/IndicoDataFusion/IDF-App#operating-modes" target="_blank" rel="noopener">Read the mode guide <span aria-hidden="true">→</span></a></div>
-        <div class="mode-list"><article><b>01</b><div><h3>Management</h3><p>Fetch live data, inspect complete details, and prepare redacted abstract exports.</p></div><span>FULL ACCESS</span></article><article><b>02</b><div><h3>Review</h3><p>Work through assigned abstracts, cast votes, and submit or update reviews.</p></div><span>ROLE AWARE</span></article><article><b>03</b><div><h3>Reading</h3><p>Open a shared abstracts file and browse it locally without an API token.</p></div><span>OFFLINE</span></article></div>
+        <div class="modes-copy"><p class="eyebrow light"><span></span> From source to insight</p><h2 id="workspace-title">One workspace, shaped by your data.</h2><p>Connect a live Indico event with an API token or load a deliberately limited abstracts export. Available records and actions follow the source, account permissions, and event configuration.</p><a class="text-link" href="https://github.com/IndicoDataFusion/IDF-App#user-guide" target="_blank" rel="noopener">Read the user guide <span aria-hidden="true">→</span></a></div>
+        <div class="mode-list"><article><b>01</b><div><h3>Explore</h3><p>Move through event information, abstracts, contributions, people, sessions, tracks, files, and links.</p></div><span>LIVE OR FILE</span></article><article><b>02</b><div><h3>Organise &amp; review</h3><p>Filter large datasets, keep private annotations, and submit reviews when your Indico permissions allow it.</p></div><span>PERMISSION AWARE</span></article><article><b>03</b><div><h3>Analyse &amp; ask</h3><p>Use interactive charts or configure an optional LLM assistant for questions, charts, and linked-PDF inspection.</p></div><span>OPTIONAL AI</span></article></div>
       </div>
     </section>
 
     <section class="section" id="get-started" aria-labelledby="start-title">
       <div class="shell">
-        <p class="eyebrow"><span></span> From download to data</p><div class="section-intro"><h2 id="start-title">Up and running in four steps.</h2><p>Install a prebuilt package and let the setup wizard guide the first connection.</p></div>
-        <ol class="steps"><li><span>01</span><div><h3>Download IDF</h3><p>Choose the latest package for Windows, macOS, or Linux.</p></div></li><li><span>02</span><div><h3>Launch the setup wizard</h3><p>Start the app and create your first data source.</p></div></li><li><span>03</span><div><h3>Connect or open a file</h3><p>Add your Indico API token, or select an exported abstracts file for offline reading.</p></div></li><li><span>04</span><div><h3>Start working</h3><p>Browse events, review abstracts, and move between configured conferences.</p></div></li></ol>
-        <div class="center-action"><a class="button button-primary" href="https://github.com/IndicoDataFusion/IDF-App/releases/latest" target="_blank" rel="noopener">Get the latest binary package <span aria-hidden="true">↓</span></a><a class="button button-quiet" href="https://github.com/IndicoDataFusion/IDF-App#readme" target="_blank" rel="noopener">Open the user guide <span aria-hidden="true">→</span></a></div>
+        <p class="eyebrow"><span></span> From download to data</p><div class="section-intro"><h2 id="start-title">Up and running in four steps.</h2><p>Install the native package, configure a source, and let the local cache make later reads faster.</p></div>
+        <ol class="steps"><li><span>01</span><div><h3>Install IDF</h3><p>Download the Windows installer, macOS package, or Linux archive or AppImage.</p></div></li><li><span>02</span><div><h3>Open data sources</h3><p>Complete the Setup Wizard on first launch, or use Settings → Data Sources.</p></div></li><li><span>03</span><div><h3>Connect or choose a file</h3><p>Add a token, base URL, and event ID for live data—or choose an abstracts export for browsing without a token.</p></div></li><li><span>04</span><div><h3>Open the programme</h3><p>Visit Event Info, Abstracts, or Contributions and let the initial load populate the local cache.</p></div></li></ol>
+        <div class="center-action"><a class="button button-primary" href="https://github.com/IndicoDataFusion/IDF-App/releases/latest" target="_blank" rel="noopener">Get the latest binary package <span aria-hidden="true">↓</span></a><a class="button button-quiet" href="https://github.com/IndicoDataFusion/IDF-App#user-guide" target="_blank" rel="noopener">Open the user guide <span aria-hidden="true">→</span></a></div>
       </div>
     </section>
 
@@ -122,7 +124,7 @@
   </main>
 
   <footer class="site-footer">
-    <div class="shell footer-main"><div><a class="brand footer-brand" href="#top"><img class="brand-icon" src="icon.svg" alt="" aria-hidden="true" /><span>IndicoData<span>Fusion</span></span></a><p>A native desktop view for Indico conference data.</p></div><nav aria-label="Footer navigation"><a href="https://github.com/IndicoDataFusion/IDF-App/releases/latest" target="_blank" rel="noopener">Latest release</a><a href="https://github.com/IndicoDataFusion/IDF-App#readme" target="_blank" rel="noopener">User guide</a><a href="https://github.com/IndicoDataFusion/IDF-App/issues" target="_blank" rel="noopener">Issues &amp; requests</a><a href="https://getindico.io/" target="_blank" rel="noopener">About Indico</a></nav></div>
+    <div class="shell footer-main"><div><a class="brand footer-brand" href="#top"><img class="brand-icon" src="icon.svg" alt="" aria-hidden="true" /><span>IndicoData<span>Fusion</span></span></a><p>A searchable desktop workspace for Indico event data.</p></div><nav aria-label="Footer navigation"><a href="https://github.com/IndicoDataFusion/IDF-App/releases/latest" target="_blank" rel="noopener">Latest release</a><a href="https://github.com/IndicoDataFusion/IDF-App#user-guide" target="_blank" rel="noopener">User guide</a><a href="https://github.com/IndicoDataFusion/IDF-App/issues" target="_blank" rel="noopener">Issues &amp; requests</a><a href="https://getindico.io/" target="_blank" rel="noopener">About Indico</a></nav></div>
     <div class="shell footer-bottom"><p>© <span id="year"></span> IndicoDataFusion</p><a href="#top">Back to top ↑</a></div>
   </footer>
   <script src="main.js"></script>
