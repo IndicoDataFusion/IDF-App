@@ -21,6 +21,10 @@ live Indico data or an exported abstracts file.
   scoped to the active data source.
 - Use live Indico data with an API token, or load an abstracts JSON
   export for file-based/offline browsing.
+- Manage event registrations: browse every registration form and its
+  fields, and mark registrations as paid or unpaid in Indico.
+- Optionally link a Cvent event to pair Cvent attendees with their
+  Indico registrations and compare payments side by side.
 - Review assigned abstracts with your Indico reviewer permissions;
   submit or update reviews, proposed actions, priorities, comments, and
   related-abstract choices.
@@ -96,10 +100,76 @@ secret. Next, add a data source and supply:
 | **API Token** | The saved token entry to use for API requests. |
 | **Abstracts File** | Optional exported JSON file; when set, it replaces live abstract loading. |
 | **Proceedings URL** | Optional published proceedings root for paper and slides links. |
+| **Cvent Event** | Optional Cvent event code whose attendees are matched against the registrations (see below). |
+| **Cvent API Token** | The saved token entry holding the Cvent client credentials. |
+| **Ref # Question ID** | Optional; pins the Cvent question that asks for the Indico Ref #. |
 
 You can keep multiple sources and switch the active one from this panel.
 Source descriptions, tags, and favourites help organise a larger
 collection.
+
+### Manage registrations
+
+With an account that manages the event's registrations, open
+**Registrations** from the sidebar. IDF gathers every registration form
+of the event, with tabs per form, column filters, and a details dialog
+that lists all of the registrant's form fields.
+
+Registrations **Awaiting payment** offer **Mark as paid**, which records
+a manual payment in Indico; paid registrations offer **Mark as unpaid**.
+Both change the live event only after a confirmation, and Indico may
+email the registrant. Marking a registration unpaid refunds nothing:
+handle refunds of online payments with the payment provider. Refresh
+the page to re-read the registrations from Indico.
+
+### Link a Cvent event to the registrations
+
+When attendees also register in Cvent, IDF can pair each Cvent attendee
+with their Indico registration and show the Cvent payment next to it on
+the **Registrations** page.
+
+1. In Cvent, create REST API client credentials (client ID and secret)
+   that can read events, attendees, event questions, orders, and
+   transactions.
+2. In **Settings → Data Sources → API Tokens**, add an entry for them:
+
+   | Token field | Value |
+   | --- | --- |
+   | **Name** | Any label, such as `myconf-cvent`. |
+   | **Base URL** | The Cvent API: `https://api-platform.cvent.com/ea` (EU: `https://api-platform-eur.cvent.com/ea`). |
+   | **Username** | The Cvent **client ID**. |
+   | **Token** | The Cvent **client secret**; it is stored in the OS keyring. |
+
+3. Edit the Indico data source, enter the **Cvent Event** code (the short
+   code in the Cvent event, such as `EXAMPLECODE`), and pick that token as
+   the **Cvent API Token**. Clear the event code to turn the link off.
+
+The **ⓘ Cvent** button in the API Tokens panel, and the help link next to
+the data source's Cvent fields, repeat these steps inside the app.
+
+Each Cvent attendee is matched to one registration:
+
+1. **By Ref #** — the attendee's answer to the Cvent question asking for
+   their Indico registration reference number is looked up as the
+   registration's `#` id (spaces and a `Ref`, `:` or `#` prefix are
+   ignored). The question is found by its text; set **Ref # Question ID**
+   if it is worded differently. A Ref # hit whose name differs is still
+   paired but marked **Ref #, check name**.
+2. **By full name** — only when the Ref # is missing or matches nothing.
+   Accents, case, punctuation, and word order are ignored; several
+   registrations with the same name are reported as ambiguous.
+
+A registration is paired with at most one attendee. The Registrations
+table gains **Cvent** and **Cvent payment** columns (paid, due, waived for
+fully discounted orders, cancelled), the details dialog shows the Cvent
+attendee and order, including discounts and the amount before discount,
+and a panel lists Cvent attendees without a registration.
+
+Registrations paid in Cvent but still **Awaiting payment** in Indico are
+highlighted and can be shown with the **Paid in Cvent, unpaid in Indico**
+filter. IDF never changes Indico on its own: use **Mark as paid** to record
+the payment, after checking the amounts in the confirmation. Refreshing
+the Registrations page also re-reads Cvent.
 
 ### Browse and organise the programme
 
@@ -233,6 +303,22 @@ myconf-2026:
   # abstracts_file: /path/to/abstracts.json
   # proceedings_url: https://proceedings.example.org/myconf2026/
   # proceedings_talk_suffix: talk
+  # cvent:                      # optional: match Cvent attendees to registrations
+  #   event: EXAMPLECODE        # Cvent event code (or uuid)
+  #   api_token_name: myconf-cvent
+  #   ref_question_id: ""       # optional; default: detect the Ref # question by text
+```
+
+For a Cvent link, the `api-tokens` entry holds the Cvent client
+credentials: `base_url` is the Cvent API, `username` the client ID, and
+the token the client secret:
+
+```yaml
+api-tokens:
+  - name: myconf-cvent
+    base_url: https://api-platform.cvent.com/ea
+    username: your-cvent-client-id
+    token: "" # Client secret is stored in the OS keyring.
 ```
 
 `abstracts_file` switches abstract loading to the named JSON file. It
@@ -280,6 +366,8 @@ UI. Test fixtures live in [`testdata/`](testdata) .
 | Event cannot be found | Verify the base URL and numeric event ID from the Indico URL. |
 | Abstracts are missing or old | Confirm that the intended source is active, then refresh the relevant cache entry or clear the cache. |
 | File-based abstracts fail to load | Check that **Abstracts File** points to an accessible IDF abstracts JSON export. |
+| Registrations cannot be loaded or marked paid | The token's account must manage the event's registrations; large forms can take up to two minutes to export. |
+| Cvent match unavailable | Check the **Cvent Event** code, that the token's Username is the Cvent client ID and its Base URL the Cvent API, and the client's read permissions. |
 | Review submission is unavailable | Use a live, valid reviewer token and confirm that the event has assigned you that abstract and track. |
 | Assistant cannot connect | Check the active LLM model profile, endpoint, model ID, token entry, and your network access. |
 | Import cannot be decrypted | Use the original backup password; IDF cannot recover a forgotten encryption password. |
